@@ -1,0 +1,25 @@
+﻿<Window x:Class="MouseMover.Dialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MouseMover"
+        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
+        Background="Transparent" AllowsTransparency="True"
+        Title="Mouse Mover" Height="150" Width="250">
+
+    <Border Background="#262636" BorderThickness="3" BorderBrush="#81879e"  CornerRadius="5">
+        <Grid MouseLeftButtonDown="Rectangle_MouseLeftButtonDown">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height=".45*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="MessageTB" VerticalAlignment="Center" TextWrapping="Wrap"
+                       HorizontalAlignment="Center" TextAlignment="Center" FontSize="8"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+            <Rectangle Grid.Row="1" Fill="#81879e" Height="3"/>
+            <Button Grid.Row="2" Margin="5" Content="Закрыть" Click="Button_Click"/>
+        </Grid>
+    </Border>
+</Window>

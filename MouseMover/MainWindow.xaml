@@ -1,0 +1,108 @@
+﻿<Window x:Class="MouseMover.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MouseMover"
+        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
+        Background="Transparent" AllowsTransparency="True"
+        Title="Mouse Mover" Height="550" Width="450">
+
+    <Border Background="#262636" BorderThickness="3" BorderBrush="#81879e"  CornerRadius="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height=".45*"/>
+            </Grid.RowDefinitions>
+            <Grid MouseLeftButtonDown="Rectangle_MouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Автоматическое изменение позиции мыши" VerticalAlignment="Center"
+                           Foreground="#f3f3fa" FontWeight="Bold" Margin="10 0 0 0"/>
+                <Rectangle Fill="Transparent" Grid.ColumnSpan="2" Margin="0,5,0,-5"/>
+                <Button Width="25"
+                        Height="25"
+                        Content="&#x2715;"
+                        Grid.Column="2"
+                        HorizontalAlignment="Right" Margin="0 0 10 0" Click="Button_Click"
+                        Style="{StaticResource CloseButton}"/>
+            </Grid>
+            <Rectangle Grid.Row="1" Fill="#81879e" Height="3"/>
+            <Grid Grid.Row="2" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text="Менять значения X"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                <Grid Grid.Row="1" Margin="0 10 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center" Padding="10 0 10 0" Grid.Row="1" Text="От:"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                    <TextBox Name="minX" Foreground="#262636" Grid.Column="1"/>
+                    <TextBlock VerticalAlignment="Center" Padding="10 0 10 0" Grid.Column="2" Grid.Row="1" Text="До:"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                    <TextBox Name="maxX" Grid.Column="3"/>
+                </Grid>
+                <TextBlock Grid.Row="2" Text="Менять значения Y"
+                           Foreground="#f3f3fa" FontWeight="Bold" Margin="0 10 0 0"/>
+                <Grid Grid.Row="3" Margin="0 10 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center" Padding="10 0 10 0" Grid.Row="1" Text="От:"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                    <TextBox Name="minY" Foreground="#262636" Grid.Column="1"/>
+                    <TextBlock VerticalAlignment="Center" Padding="10 0 10 0" Grid.Column="2" Grid.Row="1" Text="До:"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                    <TextBox Name="maxY" Grid.Column="3"/>
+                </Grid>
+                <Grid Grid.Row="4" Margin="0 10 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Промежуток между изменениями (мс)"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                    <Grid Grid.Row="1" Margin="0 10 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Center" Padding="10 0 10 0" Grid.Row="1" Text="От:"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                        <TextBox Name="minDelay" Foreground="#262636" Grid.Column="1"/>
+                        <TextBlock VerticalAlignment="Center" Padding="10 0 10 0" Grid.Column="2" Grid.Row="1" Text="До:"
+                           Foreground="#f3f3fa" FontWeight="Bold"/>
+                        <TextBox Name="maxDelay" Grid.Column="3"/>
+                    </Grid>
+                </Grid>
+                <Button Grid.Row="7" Margin="30" Content="Применить изменения" Click="Button_Click_2"/>
+            </Grid>
+            <Rectangle Grid.Row="3" Fill="#81879e" Height="3"/>
+            <Button x:Name="RunBtn" Grid.Row="4" Margin="30" Content="Запуск (Ctrl+Shift+Q)" Click="Button_Click_1"/>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="ControlLightColor">#f3f3fa</Color>
+    <Color x:Key="BorderMediumColor">#9494a2</Color>
+
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="SnapsToDevicePixels"
+          Value="True" />
+        <Setter Property="OverridesDefaultStyle"
+          Value="True" />
+        <Setter Property="KeyboardNavigation.TabNavigation"
+          Value="None" />
+        <Setter Property="FocusVisualStyle"
+          Value="{x:Null}" />
+        <Setter Property="MinWidth"
+          Value="120" />
+        <Setter Property="MinHeight"
+          Value="20" />
+        <Setter Property="AllowDrop"
+          Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border Name="Border"
+                CornerRadius="2"
+                Padding="2"
+                BorderThickness="1">
+                        <Border.Background>
+                            <SolidColorBrush Color="{DynamicResource ControlLightColor}" />
+                        </Border.Background>
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource BorderMediumColor}" />
+                        </Border.BorderBrush>
+                        <ScrollViewer Margin="0"
+                        x:Name="PART_ContentHost" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
